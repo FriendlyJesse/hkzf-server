@@ -3,5 +3,14 @@
   "ignorePatterns": ["node_modules", "dist", "test", "jest.config.js", "typings"],
   "env": {
     "jest": true
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "semi": false
+      }
+    ]
   }
 }
