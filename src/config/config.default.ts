@@ -1,5 +1,6 @@
 import { MidwayConfig } from '@midwayjs/core'
 import { Photo } from '@/entity/photo'
+import { Swiper } from '@/entity/swiper'
 
 export default {
   // use for cookie sign key, should change to your own and keep security
@@ -19,7 +20,7 @@ export default {
         database: 'hk',
         synchronize: true,
         logging: false,
-        entities: [Photo]
+        entities: [Photo, Swiper]
       }
     }
   }
