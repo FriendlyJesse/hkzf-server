@@ -14,4 +14,8 @@ export class GroupService {
   async save(body: GroupDTO) {
     return await this.Model.save(body)
   }
+
+  async get() {
+    return await this.Model.find()
+  }
 }

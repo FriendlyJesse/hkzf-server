@@ -56,4 +56,10 @@ export class APIController {
   async saveGroup(@Body() body: GroupDTO) {
     return await this.groupService.save(body)
   }
+
+  @Get('/groups')
+  @Validate()
+  async getGroup() {
+    return await this.groupService.get()
+  }
 }
