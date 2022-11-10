@@ -1,17 +1,8 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
-  DeleteDateColumn
-} from 'typeorm'
+import { Entity, Column } from 'typeorm'
+import { DateEntity } from './common/date'
 
 @Entity('swiper')
-export class Swiper {
-  @PrimaryGeneratedColumn()
-  id: number
-
+export class Swiper extends DateEntity {
   @Column({
     length: 100
   })
@@ -30,19 +21,4 @@ export class Swiper {
     default: false
   })
   isPublished: boolean
-
-  @CreateDateColumn({
-    type: 'timestamp'
-  })
-  createdDate: Date
-
-  @UpdateDateColumn({
-    type: 'timestamp'
-  })
-  updateDate: Date
-
-  @DeleteDateColumn({
-    type: 'timestamp'
-  })
-  deleteDate: Date
 }
