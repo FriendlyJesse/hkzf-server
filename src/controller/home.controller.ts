@@ -11,10 +11,12 @@ import { Context } from '@midwayjs/koa'
 // service
 import { SwiperService } from '../service/swiper.service'
 import { GroupService } from '../service/group.service'
+import { NewsService } from '../service/news.service'
 // validate
 import { Validate } from '@midwayjs/validate'
 import { SwiperDTO, PatchSwiperDTO } from '../dto/swiper'
 import { GroupDTO } from '../dto/group'
+import { NewsDTO } from '../dto/news'
 
 @Controller('/home')
 export class APIController {
@@ -26,6 +28,9 @@ export class APIController {
 
   @Inject()
   groupService: GroupService
+
+  @Inject()
+  newsService: NewsService
 
   @Post('/swiper')
   @Validate()
@@ -61,5 +66,17 @@ export class APIController {
   @Validate()
   async getGroup() {
     return await this.groupService.get()
+  }
+
+  @Post('/news')
+  @Validate()
+  async savenews(@Body() body: NewsDTO) {
+    return await this.newsService.save(body)
+  }
+
+  @Get('/news')
+  @Validate()
+  async getnews() {
+    return await this.newsService.get({ take: 3 })
   }
 }

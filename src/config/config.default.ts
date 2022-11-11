@@ -1,6 +1,7 @@
 import { MidwayConfig } from '@midwayjs/core'
 import { Swiper } from '../entity/swiper'
 import { Group } from '../entity/group'
+import { News } from '../entity/news'
 
 export default {
   // use for cookie sign key, should change to your own and keep security
@@ -13,14 +14,14 @@ export default {
     dataSource: {
       default: {
         type: 'mysql',
-        host: 'localhost',
-        port: 3306,
+        host: '192.168.0.141',
+        port: 3307,
         username: 'root',
         password: '123456',
         database: 'hk',
         synchronize: true,
         logging: false,
-        entities: [Swiper, Group]
+        entities: [Swiper, Group, News]
       }
     }
   },
