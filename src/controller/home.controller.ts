@@ -19,7 +19,7 @@ import { GroupDTO } from '../dto/group'
 import { NewsDTO } from '../dto/news'
 
 @Controller('/home')
-export class APIController {
+export class HomeController {
   @Inject()
   ctx: Context
 

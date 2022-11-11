@@ -2,6 +2,7 @@ import { MidwayConfig } from '@midwayjs/core'
 import { Swiper } from '../entity/swiper'
 import { Group } from '../entity/group'
 import { News } from '../entity/news'
+import { Area } from '../entity/area'
 
 export default {
   // use for cookie sign key, should change to your own and keep security
@@ -21,7 +22,7 @@ export default {
         database: 'hk',
         synchronize: true,
         logging: false,
-        entities: [Swiper, Group, News]
+        entities: [Swiper, Group, News, Area]
       }
     }
   },
