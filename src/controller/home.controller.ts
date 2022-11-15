@@ -5,7 +5,8 @@ import {
   Body,
   Post,
   Patch,
-  Del
+  Del,
+  Query
 } from '@midwayjs/decorator'
 import { Context } from '@midwayjs/koa'
 // service
@@ -16,7 +17,7 @@ import { NewsService } from '../service/news.service'
 import { Validate } from '@midwayjs/validate'
 import { SwiperDTO, PatchSwiperDTO } from '../dto/swiper'
 import { GroupDTO } from '../dto/group'
-import { NewsDTO } from '../dto/news'
+import { NewsDTO, GetNewsDTO } from '../dto/news'
 
 @Controller('/home')
 export class HomeController {
@@ -76,7 +77,8 @@ export class HomeController {
 
   @Get('/news')
   @Validate()
-  async getnews() {
-    return await this.newsService.get({ take: 3 })
+  async getnews(@Query() query: GetNewsDTO) {
+    const { size: take } = query
+    return await this.newsService.get({ take })
   }
 }

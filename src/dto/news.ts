@@ -13,3 +13,11 @@ export class NewsDTO {
   @Rule(RuleType.string().required())
   from: string
 }
+
+export class GetNewsDTO {
+  @Rule(RuleType.number())
+  size?: number
+
+  @Rule(RuleType.number())
+  page?: number
+}
