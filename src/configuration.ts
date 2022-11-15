@@ -6,11 +6,10 @@ import * as orm from '@midwayjs/typeorm'
 import * as crossDomain from '@midwayjs/cross-domain'
 import * as staticFile from '@midwayjs/static-file'
 import { join } from 'path'
-// import { DefaultErrorFilter } from './filter/default.filter';
-// import { NotFoundFilter } from './filter/notfound.filter';
+import { DefaultErrorFilter } from './filter/default.filter'
+import { NotFoundFilter } from './filter/notfound.filter'
 import { ReportMiddleware } from './middleware/report.middleware'
 import { FormatMiddleware } from './middleware/format.middleware'
-// import { WeatherErrorFilter } from './filter/weather.filter'
 
 @Configuration({
   imports: [
@@ -34,7 +33,6 @@ export class ContainerLifeCycle {
     // add middleware
     this.app.useMiddleware([ReportMiddleware, FormatMiddleware])
     // add filter
-    // this.app.useFilter([WeatherErrorFilter])
-    // this.app.useFilter([NotFoundFilter, DefaultErrorFilter]);
+    this.app.useFilter([NotFoundFilter, DefaultErrorFilter])
   }
 }
